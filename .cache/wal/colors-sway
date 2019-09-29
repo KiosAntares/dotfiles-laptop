@@ -1,0 +1,21 @@
+set $wallpaper /home/kios/Pictures/Wallpapers/kaworu.jpg
+
+set $background #060505
+set $foreground #e6ccc4
+
+set $color0 #060505
+set $color1 #C67061
+set $color2 #AE8676
+set $color3 #D1896D
+set $color4 #7B8B81
+set $color5 #B09B91
+set $color6 #CD9889
+set $color7 #e6ccc4
+set $color8 #a18e89
+set $color9 #C67061
+set $color10 #AE8676
+set $color11 #D1896D
+set $color12 #7B8B81
+set $color13 #B09B91
+set $color14 #CD9889
+set $color15 #e6ccc4
