@@ -196,6 +196,6 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
 esac
 
 
-alias ls='lsd'
+alias ls='exa -F'
 alias home='cd;clear'
 

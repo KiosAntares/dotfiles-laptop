@@ -18,43 +18,22 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 colorscheme wal
 
-" Set split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-\> <C-W><X>
-" nnoremap <C-S-L> :tabm +1<CR>
-" nnoremap <C-S-H> :tabm -1<CR>
+source ~/.vim/maps.vim
+source ~/.vim/settings.vim
+source ~/.vim/status.vim
 
-" Set folding and shortcut
-set foldmethod=indent
-set foldlevel=99
-noremap <space> za
+source ~/.vim/plugin-settings/nerdtree.conf.vim
+source ~/.vim/plugin-settings/tagtree.conf.vim
+source ~/.vim/plugin-settings/youcompleteme.conf.vim 
 
-" Other Settings
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set number
+source ~/.vim/langs/markdown.lang.vim
+source ~/.vim/langs/python.lang.vim
 
-" Settings for YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" Settings for TagTree
-nnoremap <silent> <C-t> :TlistToggle<CR>
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Use_Right_Window = 1
-
-" Settings for NERDTree
-autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
