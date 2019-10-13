@@ -1,4 +1,4 @@
-set $wallpaper /home/kios/Pictures/Wallpapers/kaworu.jpg
+set $wallpaper /home/kios/.config/wpg/wallpapers/kaworu.jpg
 
 set $background #060505
 set $foreground #e6ccc4

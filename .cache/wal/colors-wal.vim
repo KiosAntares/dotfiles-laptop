@@ -1,5 +1,5 @@
 " Special
-let wallpaper  = "/home/kios/Pictures/Wallpapers/kaworu.jpg"
+let wallpaper  = "/home/kios/.config/wpg/wallpapers/kaworu.jpg"
 let background = "#060505"
 let foreground = "#e6ccc4"
 let cursor     = "#e6ccc4"

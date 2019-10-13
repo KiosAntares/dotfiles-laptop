@@ -9,3 +9,7 @@ set expandtab
 
 set number
 syntax on
+
+set laststatus=2
+
+set fillchars+=vert:│

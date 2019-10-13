@@ -21,6 +21,10 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
+Plugin 'armasm'
+
+Plugin 'jpalardy/vim-slime'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -33,6 +37,7 @@ source ~/.vim/status.vim
 source ~/.vim/plugin-settings/nerdtree.conf.vim
 source ~/.vim/plugin-settings/tagtree.conf.vim
 source ~/.vim/plugin-settings/youcompleteme.conf.vim 
+source ~/.vim/plugin-settings/vim-slime.conf.vim
 
 source ~/.vim/langs/markdown.lang.vim
 source ~/.vim/langs/python.lang.vim

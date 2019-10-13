@@ -46,6 +46,9 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 2 +2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 2 -2%
 bindsym XF86AudioMute        exec pactl set-sink-mute 2 toggle
 
+bindsym XF86MonBrightnessUp  exec  xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
 ################################################################################################
 
 # Screen brightness controls
@@ -66,6 +69,7 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
+bindsym $mod+Shift+p exec /home/kios/Scripts/powermenu/power-menu.sh
 # change keyboard layout shortcuts
 
 bindsym $mod+Ctrl+Shift+u exec /home/kios/Scripts/layout_set_us_int.sh
@@ -328,6 +332,8 @@ set_from_resource $term_color15    color15
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
+
+font DejaVu Sans Code
 
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
