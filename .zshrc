@@ -195,9 +195,10 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
     ;;
 esac
 
-export PATH=/home/kios/.cargo/bin:$PATH
+export PATH=/usr/local/i386elfgcc/bin:/home/kios/.cargo/bin:$PATH
 
 alias ls='exa -F'
 alias home='cd;clear'
 alias termbin='nc termbin.com 9999' 
 alias vim='nvim'
+alias icat='kitty +kitten icat'
