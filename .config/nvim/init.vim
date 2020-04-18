@@ -10,6 +10,9 @@ Plug 'dylanaraps/wal.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tell-k/vim-autopep8'
 Plug 'jpalardy/vim-slime'
+Plug 'wlangstroth/vim-racket'
+Plug 'jceb/vim-orgmode'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 source ~/.config/nvim/mappings.vim
