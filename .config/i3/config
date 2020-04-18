@@ -1,24 +1,25 @@
-# Set mod key (Mod1=<Alt>, Mod4=<Super>)
+#set (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
-# workspace_layout tiling
+# WORKSPACE_layout tiling
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
+new_window none
 new_float normal
 
 # Hide borders
-
-for_window [class="^.*"] border none
-new_window none
+# hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 3
+bindsym $mod+y border none
 bindsym $mod+n border normal
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -34,10 +35,6 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
@@ -48,74 +45,87 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 2 +2%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 2 -2%
 bindsym XF86AudioMute        exec pactl set-sink-mute 2 toggle
 
-bindsym XF86MonBrightnessUp  exec  xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym Mod1+Up             exec pactl set-sink-volume 1 +2%
+bindsym Mod1+Down           exec pactl set-sink-volume 1 -2%
+
+bindsym XF86MonBrightnessUp     exec  xbacklight -inc 5
+bindsym XF86MonBrightnessDown   exec xbacklight -dec 5
 
 ################################################################################################
 
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
-
 # Start Applications
-bindsym $mod+F2 exec firefox
-bindsym $mod+Shift+F3 exec pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym Ctrl+Print exec flameshot gui
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym     $mod+F2     exec                    firefox
+bindsym     $mod+F3     exec                    telegram-desktop
 
-bindsym $mod+Shift+p exec /home/kios/Scripts/powermenu/power-menu.sh
-bindsym $mod+Ctrl+Shift+c exec "/home/kios/.cheeet/cheatsheet.sh sgl"
+bindsym     $mod+F5     exec    discord
+bindsym     $mod+F6     exec    steam
+
+bindsym     $mod+t      exec --no-startup-id    pkill compton
+bindsym     $mod+Ctrl+t exec --no-startup-id    compton -b
+
+bindsym     Ctrl+Print  exec                    flameshot gui
+bindsym     $mod+Print  exec --no-startup-id    i3-scrot -w
+
+bindsym     $mod+Ctrl+x exec --no-startup-id    xkill
+
+
+
+# other scripts starts
+
+bindsym $mod+Ctrl+c exec rofi -show calc
+bindsym $mod+Ctrl+s exec rofi -show ssh
+
+# TB DEPRECATED -- MAKE QUICK MENU
+bindsym $mod+Ctrl+Shift+e exec --no-startup-id /home/kios/Scripts/rofi-scripts/kaomoji-rofi/kaomoji.sh
+bindsym $mod+Ctrl+Shift+n exec --no-startup-id /home/kios/Scripts/rofi-notes/rofi_notes.sh
+bindsym $mod+Ctrl+Shift+i exec --no-startup-id /home/kios/Scripts/rofi-scripts/ipa-rofi/ipa.sh
+
+# OTHER POPUP SCRIPTS
+
+bindsym $mod+Shift+p      exec --no-startup-id "/home/kios/Scripts/powermenu/power-menu.sh"
+bindsym $mod+Ctrl+Shift+c exec --no-startup-id  "/home/kios/.cheeet/cheatsheet.sh sgl"
+
 # change keyboard layout shortcuts
 
 bindsym $mod+Ctrl+Shift+u exec /home/kios/Scripts/layout_set_us_int.sh
 bindsym $mod+Ctrl+Shift+Mod1+u exec /home/kios/Scripts/layout_set_us_int_alt.sh
 bindsym $mod+Ctrl+u exec /home/kios/Scripts/layout_set_us_std.sh
-bindsym $mod+Ctrl+i exec /home/kios/Scripts/layout_set_it_std.sh
+
 
 
 focus_follows_mouse no
 
 # change focus
- bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h          focus   left
+bindsym $mod+k          focus   down
+bindsym $mod+j          focus   up
+bindsym $mod+l          focus   right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left       focus   left
+bindsym $mod+Down       focus   down
+bindsym $mod+Up         focus   up
+bindsym $mod+Right      focus   right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h    move    left
+bindsym $mod+Shift+k    move    down
+bindsym $mod+Shift+j    move    up
+bindsym $mod+Shift+l    move    right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move    left
+bindsym $mod+Shift+Down move    down
+bindsym $mod+Shift+Up   move    up
+bindsym $mod+Shift+Right move   right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+bindsym $mod+Ctrl+h     split h;    exec notify-send 'tile horizontally'
+bindsym $mod+v          split v;    exec notify-send 'tile vertically'
+bindsym $mod+q          split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -191,13 +201,10 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
-# Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
-
 # Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Pavucontrol"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -231,11 +238,6 @@ mode "$mode_system" {
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 5 px or 5 ppt
         bindsym k resize grow height 5 px or 5 ppt
         bindsym l resize shrink height 5 px or 5 ppt
@@ -252,40 +254,18 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-# bindsym $mod+9 exec --no-startup-id blurlock
-
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id sh ~/.screenlayout/def.sh 
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-# exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 25 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id sh ~/.config/i3/polybar.sh
-exec_always --no-startup-id sh ~/Scripts/use_animated_wallpaper.sh 1920 1080 2560 1440 $(cat ~/.config/i3/wallpaper.txt)
 
 
-# Color palette used for the terminal ( ~/.Xresources file )
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
-# of your terminal like this:
-# [example]
-# If you want your bar to have the same background color as your 
-# terminal background change the line 362 from:
-# background #14191D
-# to:
-# background $term_background
-# Same logic applied to everything else.
 set_from_resource $term_background background
 set_from_resource $term_foreground foreground
 set_from_resource $term_color0     color0
@@ -307,22 +287,16 @@ set_from_resource $term_color15    color15
 
 
 
-# hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
 
-font DejaVu Sans Code
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+#  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+#  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+#  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+#  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+#  client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-
-client.background       $bg
+  client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
@@ -331,6 +305,11 @@ client.background       $bg
 # Set inner/outer gaps
 gaps inner  14
 gaps outer -2
+
+
+bindsym $mod+b exec "polybar-msg cmd show && i3-msg gaps top all set 32"
+bindsym $mod+Shift+b exec "polybar-msg cmd hide && i3-msg gaps top all set 0"
+
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -342,7 +321,7 @@ gaps outer -2
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders no_gaps
+smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -380,4 +359,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
