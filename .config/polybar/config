@@ -25,4 +25,4 @@ monitor-fallback =
 
 modules-left   = workspaces
 modules-center = clock
-modules-right  = alsa battery network memory temperature coreuse
+modules-right  = alsa network battery
